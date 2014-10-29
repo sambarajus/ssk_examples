@@ -1,0 +1,96 @@
+package com.ssk.samples.mvntest.ds.tree.example;
+
+import com.ssk.samples.mvntest.ds.queue.MyQueue;
+
+public class BinaryTree<K extends Comparable> {
+
+	Node<K> root;
+
+	public void setRoot(K data) {
+		if (root == null) {
+			root = new Node<K>(data);
+		}
+	}
+
+	public K getRoot() {
+		if (root != null)
+			return root.data;
+		else
+			return null;
+	}
+
+	public void put(K data) {
+		root = put(root, data);
+	}
+
+	private Node<K> put(Node<K> node, K data) {
+		if (node == null)
+			node = new Node<K>(data);
+
+		int comp = data.compareTo(node.data);
+		if (comp < 0)
+			node.left = put(node.left, data);
+		else if (comp > 0)
+			node.right = put(node.right, data);
+		else
+			node.data = data;
+
+		node.N = 1 + size(node.left) + size(node.right);
+		return node;
+	}
+
+	public int size() {
+		return size(root);
+	}
+
+	private int size(Node node) {
+		if (node == null) {
+			return 0;
+		} else {
+			return node.N;
+		}
+	}
+
+	public K breadthFirstSearch(K data) {
+		if (root == null) {
+
+		}
+		MyQueue<Node> queue = new MyQueue<Node>();
+		queue.enqueue(root);
+		while (!queue.isEmpty()) {
+			Node node = queue.dequeue();
+			if(data.equals(node.data)){
+				return data;
+			}
+			System.out.println(node.data);
+			if (node.left != null)
+				queue.enqueue(node.left);
+			if (node.right != null)
+				queue.enqueue(node.right);
+		}
+
+		return null;
+	}
+
+	private class Node<K extends Comparable> {
+		K data;
+		Node<K> left;
+		Node<K> right;
+		int N = 0; // Number of Nodes
+
+		public Node(K data) {
+			this.data = data;
+		}
+	}
+	public static void main(String args[]){
+		BinaryTree<Comparable> tree = new BinaryTree<Comparable>();
+		tree.put("H");
+		tree.put("G");
+		tree.put("I");
+		tree.put("K");
+		tree.put("A");
+		tree.put("C");
+		tree.put("B");
+		tree.breadthFirstSearch("A");
+	}
+}
