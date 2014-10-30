@@ -25,8 +25,6 @@ public class MyQueueTest extends TestCase {
 		queue.enqueue("Hello");
 		assertFalse(queue.isEmpty());
 	}
-	public testMaxSize(){
-		
-	}
+	
 
 }
