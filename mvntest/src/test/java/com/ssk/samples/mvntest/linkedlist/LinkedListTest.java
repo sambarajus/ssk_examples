@@ -45,6 +45,35 @@ public class LinkedListTest extends TestCase {
 		assertEquals(4, list.size());
 	}
 
+	public void testFindNthElementToLast(){
+		
+		LinkedList<String> list = new LinkedList<String>();
+		list.addNode("Hello");
+		list.addNode("Shravan");
+		list.addNode("Good");
+		list.addNode("Afternoon");
+		assertEquals("Hello", list.findNthElementToLast(4));
+		assertEquals("Shravan", list.findNthElementToLast(3));
+		assertEquals("Good", list.findNthElementToLast(2));
+		assertEquals("Afternoon", list.findNthElementToLast(1));
+		list.reverse();
+		assertEquals("Hello", list.findNthElementToLast(1));
+		assertEquals("Shravan", list.findNthElementToLast(2));
+		assertEquals("Good", list.findNthElementToLast(3));
+		assertEquals("Afternoon", list.findNthElementToLast(4));
+	}
+	
+	public void testDelete(){
+		LinkedList<String> list = new LinkedList<String>();
+		list.addNode("Hello");
+		list.addNode("Shravan");
+		list.addNode("Good");
+		list.addNode("Afternoon");
+		assertEquals(4, list.size());
+		list.delete("Shravan");
+		assertEquals(3, list.size());
+	}
+	
 	public void testSortLinkedList() {
 		fail("Not yet implemented");
 	}

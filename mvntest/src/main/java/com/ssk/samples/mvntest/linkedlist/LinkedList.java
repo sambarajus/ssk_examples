@@ -31,34 +31,36 @@ public class LinkedList<Item extends Comparable> implements Iterable {
 	}
 
 	public Item findNthElement(int n) {
+
 		Node<Item> current = head;
 		Item item = null;
 		int i = 1;
-		while(current!=null){
-			if(i==n){
-				item =  current.data;
-			}else{
+		while (current != null) {
+			if (i == n) {
+				item = current.data;
+			} else {
 				current = current.next;
 			}
 			i++;
 		}
+
 		return item;
 	}
 
 	public void removeDuplicates() {
 		Node<Item> currentNode = head;
 		try {
-		
-			while(currentNode!=null){
+
+			while (currentNode != null) {
 				Node<Item> innerNode = currentNode;
-				while(innerNode.next!=null){
-					if(currentNode.data.compareTo(innerNode.next.data)==0){
-						innerNode.next= innerNode.next.next;
+				while (innerNode.next != null) {
+					if (currentNode.data.compareTo(innerNode.next.data) == 0) {
+						innerNode.next = innerNode.next.next;
 						length--;
-					}else{
-						innerNode = innerNode.next;	
+					} else {
+						innerNode = innerNode.next;
 					}
-					
+
 				}
 				currentNode = currentNode.next;
 			}
@@ -68,19 +70,19 @@ public class LinkedList<Item extends Comparable> implements Iterable {
 	}
 
 	public void sortLinkedList() {
-		//TODO
+		// TODO
 	}
 
-	public void insertNode(Item data,int position) {
-				
-		int i=1;
+	public void insertNode(Item data, int position) {
+
+		int i = 1;
 		Node current = head;
-		while(current!=null){
-			if(i==position){
-//				Node temp = current.next;
-				Node node = new Node(data,current.next);
+		while (current != null) {
+			if (i == position) {
+				// Node temp = current.next;
+				Node node = new Node(data, current.next);
 				current.next = node;
-			}else{
+			} else {
 				current = current.next;
 			}
 			i++;
@@ -112,6 +114,36 @@ public class LinkedList<Item extends Comparable> implements Iterable {
 		length++;
 	}
 
+	public Item findNthElementToLast(int n) {
+		Node<Item> runner = head;
+		Node<Item> current = head;
+		int i = 0;
+		while (current != null) {
+			if (i >= n) {
+				runner = runner.next;
+			}
+			i++;
+			current = current.next;
+		}
+		return runner.data;
+	}
+
+	public void delete(Item item){
+		Node<Item> current = head;
+		
+		while(current!=null){
+			if(current.data.compareTo(item)==0){
+				current.next = current.next.next;
+				length--;
+			}else{
+				current = current.next;
+			}
+		}
+		
+		
+	}
+	
+	
 	@SuppressWarnings("unused")
 	private class Node<Item extends Comparable> {
 		Item data;
