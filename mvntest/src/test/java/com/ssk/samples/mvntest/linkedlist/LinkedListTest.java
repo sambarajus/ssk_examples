@@ -2,6 +2,7 @@ package com.ssk.samples.mvntest.linkedlist;
 
 import junit.framework.TestCase;
 
+
 public class LinkedListTest extends TestCase {
 
 	public void testReverse() {
@@ -89,4 +90,21 @@ public class LinkedListTest extends TestCase {
 		assertEquals("Hello", list.getLast());
 	}
 
+	public void testPartition(){
+		
+	}
+	
+	public void testFindLoop(){
+		LinkedList<String> list = new LinkedList<String>();
+		Node<String> n1 = new Node<String>(new String("Hello"),null);
+		Node<String> n2 = new Node<String>(new String("Shravan"),null);
+		Node<String> n3 = new Node<String>(new String("Good"),null);
+		Node<String> n4 = new Node<String>(new String("Afternoon"),null);
+		list.add(n1);
+		list.add(n2);;
+		list.add(n3);
+		list.add(n4);
+		list.add(n2);
+		assertEquals("Good", list.findLoop());
+	}
 }

@@ -1,10 +1,16 @@
 package com.ssk.samples.mvntest.linkedlist;
 
-public class Node {
-	public int data;
-	public Node next;
-	public Node otherNode;
-	public Node(int data){
+
+@SuppressWarnings("unused")
+public class Node<Item extends Comparable> {
+	Item data;
+	Node next;
+
+	public Node(){
+		
+	}
+	public Node(Item data, Node next) {
 		this.data = data;
+		this.next = next;
 	}
 }

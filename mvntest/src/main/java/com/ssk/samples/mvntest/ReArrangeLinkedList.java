@@ -1,4 +1,4 @@
-package com.ssk.samples.mvntest.linkedlist;
+package com.ssk.samples.mvntest;
 /*
  * You have a LinkList with each node having Next node and Other node and Data. 
 i.e. Class Node 

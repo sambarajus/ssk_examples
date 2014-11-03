@@ -1,4 +1,4 @@
-package com.ssk.samples.mvntest.linkedlist;
+package com.ssk.samples.mvntest;
 
 public class RemoveDuplicatesTest {
 
