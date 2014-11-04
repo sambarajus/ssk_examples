@@ -19,9 +19,10 @@ public class MergeSort {
 
 	int[] temp;
 
-	public void sort(int[] a) {
+	public int[] sort(int[] a) {
 		temp = new int[a.length];
 		mergeSort(a, 0, a.length-1);
+		return a;
 	}
 
 	public void mergeSort(int[] a, int low, int high) {
