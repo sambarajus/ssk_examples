@@ -1,7 +1,5 @@
 package com.ssk.samples.mvntest.ds.graph;
 
-import java.util.Stack;
-
 import com.ssk.samples.mvntest.ds.queue.MyQueue;
 import com.ssk.samples.mvntest.ds.stack.LinkedStack;
 
@@ -22,10 +20,10 @@ public class BreadthFirstSearch {
 		MyQueue<Integer> q = new MyQueue<Integer>();
 		marked[s] = true;
 		q.enqueue(s);
-		while (q.isEmpty()) {
+		while (!q.isEmpty()) {
 			int v = q.dequeue();
 			for (int w : g.getAdjecencyList(v)) {
-				if (marked[w]) {
+				if (!marked[w]) {
 					edgeTo[w] = v;
 					marked[w] = true;
 					q.enqueue(w);

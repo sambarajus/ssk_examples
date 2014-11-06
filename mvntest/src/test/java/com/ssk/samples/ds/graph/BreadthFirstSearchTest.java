@@ -19,9 +19,9 @@ public class BreadthFirstSearchTest extends TestCase {
 				g.addEdge(v[i], a[i][j]);
 			}
 		}
-		BreadthFirstSearch bfs = new BreadthFirstSearch(g,2);
-		bfs.bfs(g, 2);
-		LinkedStack<Integer> path = bfs.pathTo(5);
+		BreadthFirstSearch bfs = new BreadthFirstSearch(g,0);
+		bfs.bfs(g, 0);
+		LinkedStack<Integer> path = bfs.pathTo(3);
 		while(path.topValue()!=null){
 			System.out.println(path.pop());
 		}
