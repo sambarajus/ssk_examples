@@ -26,6 +26,7 @@ public class BreadthFirstSearch {
 				if (!marked[w]) {
 					edgeTo[w] = v;
 					marked[w] = true;
+//					System.out.println(v);
 					q.enqueue(w);
 				}
 			}
