@@ -1,5 +1,9 @@
-package com.ssk.samples.mvntest;
-
+package com.ssk.examples.cch1;
+/**
+ * 
+ * @author shravans
+ *	Question 1.7 in Cracking Coding Interview
+ */
 public class MatrixTest {
 
 	public static void main(String args[]) {
@@ -7,7 +11,6 @@ public class MatrixTest {
 				{ 13, 14, 15, 16 } };
 		printArray(a);
 		// setZeroMxNWithOneZero(a);
-
 		setZeroMxN(a);
 		printArray(a);
 	}
