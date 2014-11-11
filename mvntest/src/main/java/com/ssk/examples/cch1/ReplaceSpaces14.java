@@ -4,7 +4,7 @@ package com.ssk.examples.cch1;
  * @author shravans
  * Question 1.4 in Cracking Coding Interview
  */
-public class ReplaceSpaces {
+public class ReplaceSpaces14 {
 
 	public String replaceString(char[] strArr,int length){
 		int spaceCount = 0;
@@ -32,7 +32,7 @@ public class ReplaceSpaces {
 	}
 	
 	public static void main(String args[]){
-		ReplaceSpaces spaces = new ReplaceSpaces();
+		ReplaceSpaces14 spaces = new ReplaceSpaces14();
 		System.out.println(spaces.replaceString(new char[]{'h','e','l','l','o',' ','w','o','r','l','d',' ',' '},11));
 	}
 }

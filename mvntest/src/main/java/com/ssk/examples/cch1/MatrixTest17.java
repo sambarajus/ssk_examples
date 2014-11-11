@@ -4,7 +4,7 @@ package com.ssk.examples.cch1;
  * @author shravans
  *	Question 1.7 in Cracking Coding Interview
  */
-public class MatrixTest {
+public class MatrixTest17 {
 
 	public static void main(String args[]) {
 		int a[][] = { { 1, 2, 0, 4 }, { 5, 6, 7, 8 }, { 9, 0, 11, 12 },

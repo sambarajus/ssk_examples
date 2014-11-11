@@ -5,7 +5,7 @@ package com.ssk.examples.cch1;
  * @author shravans
  * Question 1.1 in Cracking Coding Interview
  */
-public class AllUniqueChars {
+public class AllUniqueChars11 {
 
 	// Additional Storage is used..
 	public boolean allUnique(String str) {
@@ -21,7 +21,7 @@ public class AllUniqueChars {
 	}
 
 	public static void main(String args[]) {
-		AllUniqueChars test = new AllUniqueChars();
+		AllUniqueChars11 test = new AllUniqueChars11();
 		System.out.println(test.allUnique("hello"));
 		System.out.println(test.allUnique("helo"));
 	}

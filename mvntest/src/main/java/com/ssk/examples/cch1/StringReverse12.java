@@ -5,7 +5,7 @@ package com.ssk.examples.cch1;
  * @author shravans
  * Question 1.2 in Cracking Coding Interview
  */
-public class StringReverse {
+public class StringReverse12 {
 
 	public String reverseString(char[] strArray){
 		
@@ -23,7 +23,7 @@ public class StringReverse {
 	}
 	
 	public static void main(String args[]){
-		StringReverse test = new StringReverse();
+		StringReverse12 test = new StringReverse12();
 		System.out.println(test.reverseString("hello".toCharArray()));
 	}
 }

@@ -4,7 +4,7 @@ package com.ssk.examples.cch1;
  * @author shravans
  *Question 1.5 in Cracking Coding Interview : compress String aabcccccaaa to a2b1c5a3.
  */
-public class StringCompression {
+public class StringCompression15 {
 
 	
 	public static void compressString(String str){

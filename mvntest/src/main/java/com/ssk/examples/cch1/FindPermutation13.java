@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author shravans
  * Question 1.3 in Cracking Coding Interview
  */
-public class FindPermutation {
+public class FindPermutation13 {
 
 	public boolean isPermutation(String str1, String str2){
 		if(str1.length()!=str1.length())
@@ -23,7 +23,7 @@ public class FindPermutation {
 	}
 	
 	public static void main(String args[]){
-		FindPermutation test = new FindPermutation();
+		FindPermutation13 test = new FindPermutation13();
 		System.out.println(test.isPermutation("hello", "lloeh"));
 	}
 }

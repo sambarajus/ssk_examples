@@ -4,7 +4,7 @@ package com.ssk.examples.cch1;
  * @author shravans
  *Question 1.6 in Cracking Coding Interview
  */
-public class RotateMatrix {
+public class RotateMatrix16 {
 //O(n2)
 	public int[][] rotate(int[][] matrix, int n){
 		for (int layer = 0; layer<n/2;++layer){
