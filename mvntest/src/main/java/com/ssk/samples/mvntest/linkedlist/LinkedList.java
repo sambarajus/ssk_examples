@@ -12,13 +12,15 @@ public class LinkedList<Item extends Comparable> implements Iterable {
 	public int size() {
 		return length;
 	}
-	public Node<Item> getHead(){
+
+	public Node<Item> getHead() {
 		return head;
 	}
-	public Node<Item> getTail(){
+
+	public Node<Item> getTail() {
 		return tail;
 	}
-	
+
 	public void reverse() {
 		Node<Item> current = head;
 		Node<Item> temp = null;
@@ -37,19 +39,15 @@ public class LinkedList<Item extends Comparable> implements Iterable {
 	}
 
 	public Item findNthElement(int n) {
-
+		System.out.println("LinkedList.findNthElement() " + n);
 		Node<Item> current = head;
 		Item item = null;
-		int i = 1;
-		while (current != null) {
-			if (i == n) {
-				item = current.data;
-			} else {
-				current = current.next;
-			}
-			i++;
+		while (n > 0 && current != null) {
+			item = current.data;
+			current = current.next;
+			n--;
 		}
-
+		System.out.println("LinkedList.findNthElement() " + item);
 		return item;
 	}
 
@@ -73,6 +71,35 @@ public class LinkedList<Item extends Comparable> implements Iterable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void mergeTLists(LinkedList l1, LinkedList l2) {
+
+		System.out.println("LinkedList.mergeTLists()");
+
+		Node p1 = l1.head;
+		Node p2 = l2.head;
+
+		Node fakeHead = new Node();
+		Node p = fakeHead;
+		while (p1 != null && p2 != null) {
+			if (p1.data.compareTo(p2.data) <= 0) {
+				p.next = p1;
+				p1 = p1.next;
+			} else {
+				p.next = p2;
+				p2 = p2.next;
+			}
+			p = p.next;
+		}
+		if (p1 != null)
+			p.next = p1;
+		if (p2 != null)
+			p.next = p2;
+
+		LinkedList l3 = new LinkedList<Comparable>();
+		l3.head = fakeHead;
+		System.out.println(l3.toString());
 	}
 
 	public void sortLinkedList() {
@@ -119,8 +146,8 @@ public class LinkedList<Item extends Comparable> implements Iterable {
 		tail = node;
 		length++;
 	}
-	
-	public void add(Node<Item> node){
+
+	public void add(Node<Item> node) {
 		if (head == null) {
 			head = node;
 		} else {
@@ -144,44 +171,44 @@ public class LinkedList<Item extends Comparable> implements Iterable {
 		return runner.data;
 	}
 
-	public void delete(Item item){
+	public void delete(Item item) {
 		Node<Item> current = head;
-		
-		while(current!=null){
-			if(current.data.compareTo(item)==0){
+
+		while (current != null) {
+			if (current.data.compareTo(item) == 0) {
 				current.next = current.next.next;
 				length--;
-			}else{
+			} else {
 				current = current.next;
 			}
 		}
 	}
 
-	public void splitPartition(Item x){
+	public void splitPartition(Item x) {
 		Node<Item> leftNode = null;
 		Node<Item> rightNode = null;
 		Node<Item> leftTail = null;
 		Node<Item> current = head;
-		while(current!=null){
-			System.out.println("processing : "+current.data);
-			Node<Item> n = new Node<Item>(current.data,null);
-			if(x.compareTo(current.data)<0){
-				if(rightNode!=null){
+		while (current != null) {
+			System.out.println("processing : " + current.data);
+			Node<Item> n = new Node<Item>(current.data, null);
+			if (x.compareTo(current.data) < 0) {
+				if (rightNode != null) {
 					n.next = rightNode;
 					rightNode = n;
-				}else{
+				} else {
 					rightNode = n;
 				}
-			}else if(x.compareTo(current.data)>0){
-				if(leftNode!=null){
+			} else if (x.compareTo(current.data) > 0) {
+				if (leftNode != null) {
 					n.next = leftNode;
 					leftNode = n;
-				}else{
+				} else {
 					leftNode = n;
 					leftTail = n;
 				}
-				
-			}else{
+
+			} else {
 				leftTail.next = n;
 				leftTail = n;
 			}
@@ -192,22 +219,23 @@ public class LinkedList<Item extends Comparable> implements Iterable {
 		printList(this.head);
 	}
 
-	public LinkedList sumofIntsReverseOrder(LinkedList<Integer> l1,LinkedList<Integer> l2){
-		
+	public LinkedList sumofIntsReverseOrder(LinkedList<Integer> l1,
+			LinkedList<Integer> l2) {
+
 		LinkedList<Integer> l3 = new LinkedList<Integer>();
 		Node n1 = l1.getHead();
 		Node n2 = l2.getHead();
 		Node<Integer> n3 = null;
 		Node<Integer> temp = null;
 		int cf = 0;
-		while(n1!=null || n2!=null){
-			int sum = (Integer)n1.data + (Integer)n2.data+cf;
-			cf = sum/10;
-			if(n3!=null){
-				temp.next = new Node<Integer>(sum%10,null);
+		while (n1 != null || n2 != null) {
+			int sum = (Integer) n1.data + (Integer) n2.data + cf;
+			cf = sum / 10;
+			if (n3 != null) {
+				temp.next = new Node<Integer>(sum % 10, null);
 				temp = temp.next;
-			}else{
-				n3 = new Node<Integer>(sum%10,null);
+			} else {
+				n3 = new Node<Integer>(sum % 10, null);
 				temp = n3;
 			}
 			n1 = n1.next;
@@ -215,68 +243,56 @@ public class LinkedList<Item extends Comparable> implements Iterable {
 		}
 		printList(n3);
 		return null;
-		
+
 	}
-	
-	
-	/*public void somOfIntsForwardOrder(LinkedList<Integer> l1,LinkedList<Integer> l2){
-		LinkedList<Integer> l3 = new LinkedList<Integer>();
-		Node n1 = l1.getHead();
-		Node n2 = l2.getHead();
-		Node<Integer> n3 = null;
-		Node<Integer> temp = null;
-		int cf = 0;
-		while(n1!=null || n2!=null){
-			int sum = (Integer)n1.data + (Integer)n2.data+cf;
-			cf = sum/10;
-			if(n3!=null){
-				temp.next = new Node<Integer>(sum%10,null);
-				temp = temp.next;
-			}else{
-				n3 = new Node<Integer>(sum%10,null);
-				temp = n3;
-			}
-			n1 = n1.next;
-			n2 = n2.next;
+
+	public Node findMiddle() {
+
+		Node slowPointer = head.next;
+		Node fastPointer = head.next.next;
+
+		while (fastPointer != null && fastPointer.next != null) {
+			System.out.println("SlowPointer :" + slowPointer.data
+					+ ", FastPointer: " + fastPointer.data);
+			slowPointer = slowPointer.next;
+			fastPointer = fastPointer.next.next;
 		}
-		printList(n3);
-	}*/
-	
-	
-	public Item findLoop(){
+		System.out.println("Middle : " + slowPointer.data);
+		return slowPointer;
+	}
+
+	public Item findLoop() {
 		Node<Item> slow = this.head;
 		Node<Item> fast = this.head;
 
-		while(fast!=null && fast.next!=null){
+		while (fast != null && fast.next != null) {
 			slow = slow.next;
 			fast = fast.next.next;
-			if(slow==fast){
+			if (slow == fast) {
 				break;
 			}
 		}
-		
-		if(fast==null || fast.next==null){
+
+		if (fast == null || fast.next == null) {
 			return null;
 		}
 		slow = head;
-		while(slow!=fast){
+		while (slow != fast) {
 			slow = slow.next;
 			fast = fast.next;
 		}
-		
+
 		return fast.data;
-		
+
 	}
-	
-	
-	
+
 	public Iterator iterator() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	public void printList(Node n){
-//		Node n = head;
+
+	public void printList(Node n) {
+		// Node n = head;
 		while (n.next != null) {
 			System.out.print(n.data + " --> ");
 			n = n.next;
@@ -285,4 +301,24 @@ public class LinkedList<Item extends Comparable> implements Iterable {
 			System.out.print(n.data + "\n");
 		}
 	}
+
+	public String toString() {
+
+		StringBuffer buf = new StringBuffer();
+		if (head == null)
+			return null;
+
+		Node current = head;
+
+		while (current != null) {
+			buf.append(current.data);
+			if (current.next != null)
+				buf.append("-->");
+
+			current = current.next;
+		}
+
+		return buf.toString();
+	}
+
 }
