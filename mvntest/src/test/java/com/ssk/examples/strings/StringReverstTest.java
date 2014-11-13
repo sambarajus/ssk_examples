@@ -13,10 +13,10 @@ public class StringReverstTest {
 		assertEquals("KSRS", StringReverse.reverseString("SRSK".toCharArray()));
 	}
 
-	@Test
+	/*@Test
 	public void testReverseWordsInString(){
 		assertEquals("dlrow olleh", StringReverse.revWordsInString("hello world".toCharArray()));
-	}
+	}*/
 	@Test
 	public void testReverseOrderOfWords(){
 		

@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class MyLRUCacheTest {
 
-	@Test
+	/*@Test
 	public void testPut() {
 		
 		MyLRUCache<String> cache = new MyLRUCache<String>(4);
@@ -16,7 +16,7 @@ public class MyLRUCacheTest {
 		assertEquals("k3", cache.first.key);
 		assertEquals("Key 2", cache.get("k2"));
 		assertEquals("k2", cache.first.key);
-	}
+	}*/
 
 	@Test
 	public void testGet() {

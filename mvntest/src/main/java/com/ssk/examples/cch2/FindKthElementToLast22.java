@@ -19,7 +19,7 @@ public class FindKthElementToLast22 {
 		SingleNode runner = null;
 		SingleNode current = head;
 		int i = 0;
-		while (current != null) {
+		while (current != null && runner!=null) {
 			if (i >= n) {
 				runner = runner.next;
 			}

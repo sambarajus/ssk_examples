@@ -55,6 +55,10 @@ public class LinkedStack<K> implements Stack<K> {
 		// TODO Auto-generated method stub
 		return size;
 	}
+	
+	public boolean isEmpty(){
+		return size==0;
+	}
 
 	private class Link<K> {
 		public Link<K> next;

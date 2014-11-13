@@ -1,6 +1,7 @@
 package com.ssk.samples.mvntest.ds.tree.example;
 
 import com.ssk.samples.mvntest.ds.queue.MyQueue;
+import com.ssk.samples.mvntest.ds.stack.LinkedStack;
 
 public class BinaryTree<K extends Comparable> {
 
@@ -59,7 +60,7 @@ public class BinaryTree<K extends Comparable> {
 		queue.enqueue(root);
 		while (!queue.isEmpty()) {
 			Node node = queue.dequeue();
-			if(data.equals(node.data)){
+			if (data.equals(node.data)) {
 				return data;
 			}
 			System.out.println(node.data);
@@ -72,6 +73,43 @@ public class BinaryTree<K extends Comparable> {
 		return null;
 	}
 
+	public K deapthFirstSearch() {
+
+		LinkedStack<K> stack = new LinkedStack<K>();
+
+		stack.push(root.data);
+		Node<K> left = root.left;
+		Node<K> right = root.right;
+		while (left != null) {
+			stack.push(left.data);
+		}
+		return null;
+	}
+
+	public int getHeight() {
+		LinkedStack<Node> nodes = new LinkedStack<Node>();
+		LinkedStack<Integer> levels = new LinkedStack<Integer>();
+		
+		nodes.push(root);
+		levels.push(0);
+		int maxLevel = 0;
+		while(!nodes.isEmpty()){
+			Node node = nodes.pop();
+			int currentLevel = levels.pop();
+			if(node.left!=null){
+				nodes.push(node.left);
+				levels.push(currentLevel + 1);  
+			}
+			if(node.right!=null){
+				nodes.push(node.right);
+				levels.push(currentLevel + 1);  
+			}
+			if(currentLevel>maxLevel)
+				maxLevel = currentLevel;
+		}
+		return maxLevel;
+	}
+
 	private class Node<K extends Comparable> {
 		K data;
 		Node<K> left;
@@ -82,7 +120,8 @@ public class BinaryTree<K extends Comparable> {
 			this.data = data;
 		}
 	}
-	public static void main(String args[]){
+
+	public static void main(String args[]) {
 		BinaryTree<Comparable> tree = new BinaryTree<Comparable>();
 		tree.put("H");
 		tree.put("G");
@@ -92,5 +131,7 @@ public class BinaryTree<K extends Comparable> {
 		tree.put("C");
 		tree.put("B");
 		tree.breadthFirstSearch("A");
+		System.out.println(tree.getHeight());
+		
 	}
 }
