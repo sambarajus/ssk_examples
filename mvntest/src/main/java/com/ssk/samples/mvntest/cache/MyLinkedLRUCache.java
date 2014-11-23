@@ -19,6 +19,10 @@ public class MyLinkedLRUCache<Item> {
 			
 		}
 	}
+	
+	private void removeNode(){
+		
+	}
 
 	public Item get(String key) {
 
